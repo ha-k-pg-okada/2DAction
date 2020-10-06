@@ -8,7 +8,12 @@ enum SceneKind
 	GameScene,
 };
 
-
+enum SceneStep
+{
+	Init,
+	Run,
+	Finish
+};
 
 void UpdateScene();
 

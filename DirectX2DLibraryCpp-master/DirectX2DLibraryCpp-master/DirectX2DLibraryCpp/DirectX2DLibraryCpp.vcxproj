@@ -23,6 +23,7 @@
     <ProjectGuid>{DB3FCA37-2820-4284-8C5A-27747A71F33F}</ProjectGuid>
     <RootNamespace>DirectX2DLibraryCpp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>2DAction</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

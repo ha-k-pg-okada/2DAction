@@ -42,7 +42,7 @@ int WINAPI WinMain(
 	// サウンド読み込み
 	// 第一引数の文字列で読み込んだサウンドを登録する
 	// 描画や取得は登録した文字列で指定する
-	Engine::LoadSoundFile("Bgm", "Res/Bgm.wav");
+	//Engine::LoadSoundFile("Bgm", "Res/Bgm.wav");
 	Engine::LoadSoundFile("Se", "Res/Se.wav");
 
 	// サウンド再生

@@ -36,7 +36,7 @@ int WINAPI WinMain(
 	// 第一引数の文字列で読み込んだテクスチャを登録する
 	// 描画や取得は登録した文字列で指定する
 	Engine::LoadTexture("Enemy", "Res/Enemy.png");
-	Engine::LoadTexture("01", "Res/かにかま_200730_11.jpg");
+	
 	Engine::LoadTexture("02", "Res/キャラクターカード：獣人.jpg");
 
 	// サウンド読み込み

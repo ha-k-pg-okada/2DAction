@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Src\Engine\Engine.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Src\Engine\Engine.h" />

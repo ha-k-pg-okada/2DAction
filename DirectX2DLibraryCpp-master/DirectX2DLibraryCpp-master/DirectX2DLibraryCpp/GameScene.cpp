@@ -14,19 +14,28 @@ extern SceneStep g_CurrentSceneStep;
 
 GameFadeControl g_GameFadeControl;
 
-//int alpha = 0;
-//bool FadeControl01 = false;
-//bool FadeControl02 = false;
-//bool FadeControl03 = false;
-//bool FadeControl04 = false;
+Vec2 tex_Pos;
+Vec2 chip_size(64.0f, 64.0f);
+Vec2 Pos;
+
+
+
+int map_date[5][5] =
+{
+	{1,5,1,1,1},
+	{1,1,1,1,1},
+	{2,1,1,1,1},
+	{2,1,1,1,1},
+	{2,1,1,1,1},
+
+};
+
 
 
 void InitGameScene()
 {
 	g_GameFadeControl.alpha = 255;
 	g_GameFadeControl.FadeControl01 = false;
-	
-
 	
 	//Engine::DrawFont(200.0f, 200.0f, "ゲームシーン", Regular, White);
 
@@ -35,8 +44,29 @@ void InitGameScene()
 
 void RunGameScene()
 {
+	Engine::LoadTexture("map", "Res/MapChip.png");
+	//Engine::DrawTextureUV(0.0f, 0.0f, "map", 320.0f, 0.0f, map * 1, 64.0f, 255, 0.0f);
 	
-		Engine::DrawTexture(0.0f, 0.0f, "02");
+	
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			tex_Pos.X = map_date[j][i] % 4 * chip_size.X;
+			tex_Pos.Y = map_date[j][i] / 4 * chip_size.Y;
+
+			Pos = Vec2(i * chip_size.X, j * chip_size.X);
+
+			Engine::DrawTextureUV(Pos.X, Pos.Y, "map", tex_Pos.X, tex_Pos.Y, chip_size.X, chip_size.Y, 255, 0.0f);
+
+		
+		}
+	}
+
+	
+	
+		//Engine::DrawTexture(0.0f, 0.0f, "map");
 	
 	
 
@@ -61,34 +91,6 @@ void RunGameScene()
 
 
 
-	//Engine::DrawFont(200.0f, 200.0f, "ゲームシーン", Regular, White);
-
-	
-		/*if (Engine::IsKeyboardKeyPushed(DIK_RETURN))
-		{
-			
-
-				g_FadeControl.FadeControl02 = true;
-
-
-			
-		}*/
-	
-	
-
-	//if (g_FadeControl.FadeControl02 == true)
-	//{
-	//	Engine::DrawRect(0.0f, 0.0f, 1920.0f, 1080.0f, 0xffffff, g_FadeControl.alpha++);
-
-	//	if (g_FadeControl.alpha >= 255)
-	//	{
-
-	//		g_CurrentSceneKind = SceneKind::TitleScene;
-	//		g_CurrentSceneStep = SceneStep::Init;
-	//		/*FadeControl03 = false;
-	//		FadeControl04 = true;*/
-	//	}
-	//}
 }
 
 void FinishGameScene()

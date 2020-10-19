@@ -1,5 +1,6 @@
 #include "Scene.h"
 #include "TitleScene.h"
+#include "Button.h"
 #include "Src/Engine/Engine.h"
 
 
@@ -7,14 +8,11 @@ void InitTitleScene();
 void RunTitleScene();
 void FinishTitleScene();
 
+
 extern SceneKind g_CurrentSceneKind;
 extern SceneStep g_CurrentSceneStep;
+extern Button g_Button;
 
-//int alpha = 0;
-//bool FadeControl01 = false;
-//bool FadeControl02 = false;
-//bool FadeControl03 = false;
-//bool FadeControl04 = false;
 
 TitleFadeControl g_TitleFadeControl;
 
@@ -22,7 +20,12 @@ void InitTitleScene()
 {
 	g_TitleFadeControl.alpha = 0;
 	g_TitleFadeControl.FadeControl01 = false;
+
 	
+	
+	Engine::LoadTexture("01", "Res/かにかま_200730_11.jpg");
+	Engine::LoadTexture("Button", "Res/SampleButton.png");
+
 	//Engine::DrawFont(200.0f, 200.0f, "タイトルシーン", Regular, White);
 
 	g_CurrentSceneStep = SceneStep::Run;
@@ -36,22 +39,53 @@ void InitTitleScene()
 
 void RunTitleScene()
 {
-	if (Engine::IsKeyboardKeyPushed(DIK_RETURN))
+	
+
+	UpdateButton();
+	
+	bool mio = true;
+
+	
+
+	if  (g_Button == Button::Button001 && Engine::IsMouseButtonPushed(MouseButton::Left) && mio == true)
+
 	{
+	
+		mio = false;
 
-	if (g_TitleFadeControl.FadeControl01 == false)
-	   {
-		
+		if (mio == false)
+		{
+			g_Button = Button::Button003;
 
-		g_TitleFadeControl.FadeControl01 = true;
+		}
+
+		if (g_TitleFadeControl.FadeControl01 == false)
+		{
+
+
+			g_TitleFadeControl.FadeControl01 = true;
 
 
 		}
 	}
+	
+
+	//if (Engine::IsKeyboardKeyPushed(DIK_RETURN))
+	//{
+
+	//if (g_TitleFadeControl.FadeControl01 == false)
+	//   {
+	//	
+
+	//	g_TitleFadeControl.FadeControl01 = true;
+
+
+	//	}
+	//}
 	//Engine::DrawFont(200.0f, 200.0f, "タイトルシーン", Regular, White);
 
 	Engine::DrawTexture(0.0f, 0.0f, "01");
-
+	Drow();
 
 	if (g_TitleFadeControl.FadeControl01 == true)
 	{
@@ -59,8 +93,8 @@ void RunTitleScene()
 
 		if (g_TitleFadeControl.alpha == 255)
 		{
-			g_CurrentSceneKind = SceneKind::GameScene;
-			g_CurrentSceneStep = SceneStep::Init;
+			
+			//g_CurrentSceneStep = SceneStep::Finish;
 			/*g_FadeControl.FadeControl01 = false;
 			g_FadeControl.FadeControl02 = true;*/
 		}
@@ -82,7 +116,7 @@ void RunTitleScene()
 			g_CurrentSceneKind = SceneKind::GameScene;
 			g_CurrentSceneStep = SceneStep::Init;
 		}*/
-
+	g_CurrentSceneStep = SceneStep::Finish;
 	}
 
 
@@ -90,9 +124,12 @@ void RunTitleScene()
 
 void FinishTitleScene()
 {
-
-
+	
+	
+	g_CurrentSceneKind = SceneKind::GameScene;
+	g_CurrentSceneStep = SceneStep::Init;
 }
+
 
 
 

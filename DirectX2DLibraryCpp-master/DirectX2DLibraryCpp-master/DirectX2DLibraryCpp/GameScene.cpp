@@ -42,14 +42,55 @@ void InitGameScene()
 	g_CurrentSceneStep = SceneStep::Run;
 }
 
+float max = 1800.0f;
+float min = 0.0f;
+float current = 0.0f;
+float ratio;
+
+
 void RunGameScene()
 {
-	Engine::LoadTexture("map", "Res/MapChip.png");
+
+	
+	/*Engine::LoadTexture("Slider01", "Res/Slider01.png");
+
+	current++;
+	ratio = (current - min) / (max - min);
+
+	if (current >= 1800.0f)
+	{
+		current = 0;
+	}
+
+	Engine::DrawRect(0.0f, 450.0f, 640.0f, 480.0f, 0xaaaaaa, 100);
+
+	Engine::DrawTextureUV(0.0f, 450.0f, "Slider01", 0.0f, 0.0f, 385.0f * ratio, 60.0f, 255, 0.0f, 1.66f, 1.0f);*/
+
+	//(現在値－最小値)/(最大値-最小値)
+	//float current = 0.0f;
+	//float max = 1800.0f;
+	//float min = 0.0f;
+	//float ratio;
+
+	current++;
+	ratio = (current - min) / (max - min);
+	if (current >= 1800.0f)
+	{
+		current = 0.0f;
+	}
+
+
+	//Engine::LoadTexture("map", "Res/MapChip.png");
+	Engine::LoadTexture("Slider01", "Res/Slider01.png");
+	Engine::DrawRect(0.0f, 0.0f, 384.0f, 64.0f, 0xffffff, 125);
+	Engine::DrawTextureUV(0.0f, 0.0f, "Slider01", 0.0f, 0.0f, 384.0f * ratio, 64.0f, 255, 0.0f);
+	//Engine::DrawTexture(0.0f, 0.0f, "Slider01", 255, 0.0f, 1.0f * ratio, 1.0f);
+	
 	//Engine::DrawTextureUV(0.0f, 0.0f, "map", 320.0f, 0.0f, map * 1, 64.0f, 255, 0.0f);
 	
 	
 
-	for (int i = 0; i < 5; i++)
+	/*for (int i = 0; i < 5; i++)
 	{
 		for (int j = 0; j < 5; j++)
 		{
@@ -62,7 +103,7 @@ void RunGameScene()
 
 		
 		}
-	}
+	}*/
 
 	
 	

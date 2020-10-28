@@ -43,17 +43,17 @@ void RunTitleScene()
 
 	UpdateButton();
 	
-	bool mio = true;
+	bool Judgment = true;
 
 	
 
-	if  (g_Button == Button::Button001 && Engine::IsMouseButtonPushed(MouseButton::Left) && mio == true)
+	if  (g_Button == Button::Button001 && Engine::IsMouseButtonPushed(MouseButton::Left) && Judgment == true)
 
 	{
 	
-		mio = false;
+		Judgment = false;
 
-		if (mio == false)
+		if (Judgment == false)
 		{
 			g_Button = Button::Button003;
 
